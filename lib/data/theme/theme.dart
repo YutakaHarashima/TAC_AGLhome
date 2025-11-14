@@ -3,7 +3,7 @@ import 'package:flutter_ics_homescreen/export.dart';
 // ignore_for_file: overridden_fields
 
 ThemeData theme = ThemeData(
-  scaffoldBackgroundColor: const Color(0xFF0D113F),
+  scaffoldBackgroundColor: const Color(0xFF003322),
   useMaterial3: false,
   fontFamily: GoogleFonts.firaSans().fontFamily,
   // Define the default brightness and colors.

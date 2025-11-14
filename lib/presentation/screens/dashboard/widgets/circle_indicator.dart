@@ -3,6 +3,9 @@ import 'package:flutter_ics_homescreen/export.dart';
 
 import 'custom_circle.dart';
 
+const double _gaugeScale = 0.6; // global gauge scale
+
+
 class RPMProgressIndicator extends ConsumerStatefulWidget {
   const RPMProgressIndicator({super.key});
 
@@ -38,7 +41,9 @@ class RPMProgressIndicatorState extends ConsumerState<RPMProgressIndicator>
   Widget build(BuildContext context) {
     final rpm =
         ref.watch(vehicleProvider.select((vehicle) => vehicle.engineSpeed));
-    return Column(
+    return Transform.scale(
+      scale: _gaugeScale,
+      child: Column(
       children: [
         SizedBox(
           height: 252,
@@ -105,7 +110,8 @@ class RPMProgressIndicatorState extends ConsumerState<RPMProgressIndicator>
           style: TextStyle(color: Colors.white, fontSize: 40),
         ),
       ],
-    );
+    ),
+  );
   }
 }
 
@@ -145,7 +151,9 @@ class SpeedProgressIndicatorState extends ConsumerState<SpeedProgressIndicator>
     final speed = ref.watch(vehicleProvider.select((vehicle) => vehicle.speed));
     final unit =
         ref.watch(unitStateProvider.select((unit) => unit.distanceUnit));
-    return Column(
+    return Transform.scale(
+      scale: _gaugeScale,
+      child: Column(
       children: [
         SizedBox(
           height: 252,
@@ -196,7 +204,8 @@ class SpeedProgressIndicatorState extends ConsumerState<SpeedProgressIndicator>
           style: const TextStyle(color: Colors.white, fontSize: 40),
         ),
       ],
-    );
+    ),
+  );
   }
 }
 
@@ -235,7 +244,9 @@ class FuelProgressIndicatorState extends ConsumerState<FuelProgressIndicator>
   Widget build(BuildContext context) {
     final fuelLevel =
         ref.watch(vehicleProvider.select((vehicle) => vehicle.fuelLevel));
-    return Column(
+    return Transform.scale(
+      scale: _gaugeScale,
+      child: Column(
       children: [
         SizedBox(
           height: 252,
@@ -304,6 +315,7 @@ class FuelProgressIndicatorState extends ConsumerState<FuelProgressIndicator>
           style: TextStyle(color: Colors.white, fontSize: 40),
         ),
       ],
-    );
+    ),
+  );
   }
 }
